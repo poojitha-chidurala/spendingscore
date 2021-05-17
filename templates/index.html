@@ -4,25 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <title>ML API</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <style>
-body { background-image:url('https://images.app.goo.gl/sWTqF49pwnK4QDgs7');}
+  body{
+    background-color: white;
+  animation-name: example;
+  animation-duration: 10s;
+
+  }
+  @keyframes example {
+  0%   {background-color: white;}
+  15%  {background-color:salmon;}
+  25%  {background-color: thistle;}
+  35%  {background-color:powderblue;}
+  45%  {background-color:burlywood;}
+  55%  {background-color: yellow;}
+  65%  {background-color:lightskyblue;}
+  75%  {background-color: floralwhite;}
+  85%  {background-color: lightcoral;}
+  95%  {background-color: goldenrod;}
+  100% {background-color: cadetblue;}
+}  
+input{
+  margin-top: 10px;
+}
+h1{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
 </style>
 </head>
 
 <body>
  <div class="login">
-	<h1 style="text-align:center; color:red">Spending Score Prediction</h1>
+	<h1 style="text-align:center; color:black">Spending Score Prediction</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	 <input type="text" name="Customer_ID" placeholder="Customer ID" required="required"/><br/><br/>
-            <input type="text" name="Gender" placeholder="Gender" required="required"/></br><br/>
-            <input type="text" name="Age" placeholder="Age" required="required"/><br/><br/>
-            <input type="text" name="Annual_Income" placeholder="Annual Income" required="required"/><br/><br/>
+    <form action="{{ url_for('predict')}}"method="post" class="form container form-group">
+    	 <input type="text" name="Customer_ID" placeholder="Customer ID" class="form-control"  required="required"/><br/><br/>
+            <input type="text" name="Gender" placeholder="Gender" class="form-control" required="required"/><span class="text-info">0:Male &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1:Female </span></br>
+            <br/>
+            <input type="text" name="Age" placeholder="Age" class="form-control" required="required"/><br/><br/>
+            <input type="text" name="Annual_Income" placeholder="Annual Income" class="form-control" required="required"/><br/><br/>
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
